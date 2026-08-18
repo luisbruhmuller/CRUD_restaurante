@@ -3,6 +3,7 @@
 include "infra/conexao.php";
 
 
+
 $pratos = mysqli_query($conexao, "SELECT * FROM pratos");
 
 ?>
@@ -59,6 +60,20 @@ $pratos = mysqli_query($conexao, "SELECT * FROM pratos");
             <input type="email" name="email">
             <br>
             <button type="submit">Cadastrar</button>
+        </form>
+        <h2>listar por usuario</h2>
+        <form action="public/listar_prato_usuario.php" method="POST">
+            <label for="id_usuario">Usuário:</label>
+            <select name="id_usuario">
+                <?php
+                $usuarios = mysqli_query($conexao, "SELECT * FROM usuarios");
+                while ($usuario = mysqli_fetch_assoc($usuarios)) {
+                    echo "<option value='" . $usuario['id'] . "'>" . $usuario['nome'] . "</option>";
+                    }
+                    ?>
+            </select>
+            <br>
+            <button type="submit">Listar</button>
         <div>
             <h2>Pratos Cadastrados</h2>
             <table>
@@ -70,16 +85,16 @@ $pratos = mysqli_query($conexao, "SELECT * FROM pratos");
                     <th>Categoria</th>
                     <th>Ações</th>
                 </tr>
-                <?php while ($pratos = mysqli_fetch_assoc($pratos)) { ?>
+                <?php while ($prato = mysqli_fetch_assoc($pratos)) { ?>
                     <tr>
-                        <td><?php echo $pratos["id"] ?></td>
-                        <td><?php echo $pratos["nome"] ?></td>
-                        <td><?php echo $pratos["descricao"] ?></td>
-                        <td><?php echo $pratos["preco"] ?></td>
-                        <td><?php echo $pratos["categoria"] ?></td>
+                        <td><?php echo $prato["id"] ?></td>
+                        <td><?php echo $prato["nome"] ?></td>
+                        <td><?php echo $prato["descricao"] ?></td>
+                        <td><?php echo $prato["preco"] ?></td>
+                        <td><?php echo $prato["categoria"] ?></td>
                         <td>
-                            <a href="public/editar_prato.php?id=<?php echo $pratos["id"] ?>">Editar</a>
-                            <a href="public/excluir_prato.php?id=<?php echo $pratos["id"] ?>">Excluir</a>
+                            <a href="public/editar_prato.php?id=<?php echo $prato["id"] ?>">Editar</a>
+                            <a href="public/excluir_prato.php?id=<?php echo $prato["id"] ?>">Excluir</a>
                         </td>
                     </tr>
                 <?php } ?>
