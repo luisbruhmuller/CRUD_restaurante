@@ -6,7 +6,7 @@ $id = $_POST["id"];
 $nome = $_POST["nome"];
 $email = $_POST["email"];
 
-$sql = "INSERT INTO usuario (id,nome,descricao,preco,categoria,id_usuario) VALUES ('$id,$nome,$descricao,$preco,$categoria,$id_usuario')";
+$sql = "INSERT INTO usuario (id,nome,email) VALUES ('$id','$nome','$email')";
 
 mysqli_query($conexao, $sql);
 
