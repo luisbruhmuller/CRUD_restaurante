@@ -2,11 +2,10 @@
 
 include "../infra/conexao.php";
 
-$id = $_POST["id"];
 $nome = $_POST["nome"];
 $email = $_POST["email"];
 
-$sql = "INSERT INTO usuario (id,nome,email) VALUES ('$id','$nome','$email')";
+$sql = "INSERT INTO usuarios (nome,email) VALUES ('$nome','$email')";
 
 mysqli_query($conexao, $sql);
 

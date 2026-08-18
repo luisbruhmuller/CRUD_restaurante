@@ -8,7 +8,7 @@ $preco = $_POST["preco"];
 $categoria = $_POST["categoria"];
 $id_usuario = $_POST["id_usuario"];
 
-$sql = "INSERT INTO pratos (nome,descricao,preco,categoria,id_usuario) VALUES ('$nome','$descricao','$preco','$categoria','$id_usuario')";
+$sql = "INSERT INTO pratos (nome,descricao,preco,categoria,usuario_id) VALUES ('$nome','$descricao','$preco','$categoria','$id_usuario')";
 
 mysqli_query($conexao, $sql);
 

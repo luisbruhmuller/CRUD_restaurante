@@ -1,6 +1,8 @@
 <?php
 
 include "infra/conexao.php";
+
+
 $pratos = mysqli_query($conexao, "SELECT * FROM pratos");
 
 ?>
@@ -50,7 +52,6 @@ $pratos = mysqli_query($conexao, "SELECT * FROM pratos");
         </form>
         <h2>Adicione um novo usuário!</h2>
         <form action="public/cadastrar_usuario.php" method="POST">
-            <br>
             <label for="nome">Nome:</label>
             <input type="text" name="nome">
             <br>
@@ -77,8 +78,8 @@ $pratos = mysqli_query($conexao, "SELECT * FROM pratos");
                         <td><?php echo $pratos["preco"] ?></td>
                         <td><?php echo $pratos["categoria"] ?></td>
                         <td>
-                            <a href="public/editar.php?id=<?php echo $pratos["id"] ?>">Editar</a>
-                            <a href="public/excluir.php?id=<?php echo $pratos["id"] ?>">Excluir</a>
+                            <a href="public/editar_prato.php?id=<?php echo $pratos["id"] ?>">Editar</a>
+                            <a href="public/excluir_prato.php?id=<?php echo $pratos["id"] ?>">Excluir</a>
                         </td>
                     </tr>
                 <?php } ?>
