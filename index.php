@@ -36,8 +36,28 @@ $pratos = mysqli_query($conexao, "SELECT * FROM pratos");
             <label for="categoria">Categoria:</label>
             <input type="text" name="categoria">
             <br>
+            <label for="id_usuario">Usuário:</label>
+            <select name="id_usuario">
+                <?php
+                $usuarios = mysqli_query($conexao, "SELECT * FROM usuarios");
+                while ($usuario = mysqli_fetch_assoc($usuarios)) {
+                    echo "<option value='" . $usuario['id'] . "'>" . $usuario['nome'] . "</option>";
+                    }
+                    ?>
+            </select>
+            <br>
             <button type="submit">Cadastrar</button>
         </form>
+        <h2>Adicione um novo usuário!</h2>
+        <form action="public/cadastrar_usuario.php" method="POST">
+            <br>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome">
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" name="email">
+            <br>
+            <button type="submit">Cadastrar</button>
         <div>
             <h2>Pratos Cadastrados</h2>
             <table>
