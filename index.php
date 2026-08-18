@@ -22,6 +22,8 @@ $pratos = mysqli_query($conexao, "SELECT * FROM pratos");
     <main>
         <h2>Adicione um novo prato!</h2>
         <form action="public/cadastrar_prato.php" method="POST">
+
+            <br>
             <label for="nome">Nome:</label>
             <input type="text" name="nome">
             <br>
@@ -30,6 +32,9 @@ $pratos = mysqli_query($conexao, "SELECT * FROM pratos");
             <br>
             <label for="preco">Preço:</label>
             <input type="number" name="preco" step="0.01">
+            <br>
+            <label for="categoria">Categoria:</label>
+            <input type="text" name="categoria">
             <br>
             <button type="submit">Cadastrar</button>
         </form>
