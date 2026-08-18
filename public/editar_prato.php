@@ -29,14 +29,17 @@ $pratos =mysqli_fetch_assoc($resultado);
         <form action="atualizar.php" method="POST">
             <input type="hidden" name="id" value="<?php echo $pratos["id"]?>">
 
-            <label for="titulo">Título:</label>
-            <input type="text" name="titulo" value="<?php echo $pratos["titulo"]?>">
+            <label for="titulo">Nome:</label>
+            <input type="text" name="nome" value="<?php echo $pratos["nome"]?>">
             <br>
-            <label for="autor">Autor:</label>
-            <input type="text" name="autor" value="<?php echo $pratos["autor"]?>">
+            <label for="autor">Descrição:</label>
+            <input type="text" name="descricao" value="<?php echo $pratos["descrição"]?>">
             <br>
-            <label for="ano">Ano de Publicação:</label>
-            <input type="number" name="ano" value="<?php echo $pratos["ano"]?>">
+            <label for="ano">Preço:</label>
+            <input type="number" name="preco" value="<?php echo $pratos["preço"]?>">
+            <br>
+            <label for="ano">Categoria:</label>
+            <input type="text" name="categoria" value="<?php echo $pratos["categoria"]?>">
             <br>
             <button type="submit">Atualizar</button>
         </form>
