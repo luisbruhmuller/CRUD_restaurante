@@ -1,7 +1,7 @@
 <?php
 
 include "infra/conexao.php";
-$prato = mysqli_query($conexao, "SELECT * FROM pratos");
+$pratos = mysqli_query($conexao, "SELECT * FROM pratos");
 
 ?>
 
@@ -21,7 +21,7 @@ $prato = mysqli_query($conexao, "SELECT * FROM pratos");
     </header>
     <main>
         <h2>Adicione um novo prato!</h2>
-        <form action="public/cadastrar.php" method="POST">
+        <form action="public/cadastrar_prato.php" method="POST">
             <label for="nome">Nome:</label>
             <input type="text" name="nome">
             <br>
@@ -44,16 +44,16 @@ $prato = mysqli_query($conexao, "SELECT * FROM pratos");
                     <th>Categoria</th>
                     <th>Ações</th>
                 </tr>
-                <?php while ($prato = mysqli_fetch_assoc($pratos)) { ?>
+                <?php while ($pratos = mysqli_fetch_assoc($pratos)) { ?>
                     <tr>
-                        <td><?php echo $prato["id"] ?></td>
-                        <td><?php echo $prato["nome"] ?></td>
-                        <td><?php echo $prato["descricao"] ?></td>
-                        <td><?php echo $prato["preco"] ?></td>
-                        <td><?php echo $prato["categoria"] ?></td>
+                        <td><?php echo $pratos["id"] ?></td>
+                        <td><?php echo $pratos["nome"] ?></td>
+                        <td><?php echo $pratos["descricao"] ?></td>
+                        <td><?php echo $pratos["preco"] ?></td>
+                        <td><?php echo $pratos["categoria"] ?></td>
                         <td>
-                            <a href="public/editar.php?id=<?php echo $prato["id"] ?>">Editar</a>
-                            <a href="public/excluir.php?id=<?php echo $prato["id"] ?>">Excluir</a>
+                            <a href="public/editar.php?id=<?php echo $pratos["id"] ?>">Editar</a>
+                            <a href="public/excluir.php?id=<?php echo $pratos["id"] ?>">Excluir</a>
                         </td>
                     </tr>
                 <?php } ?>
